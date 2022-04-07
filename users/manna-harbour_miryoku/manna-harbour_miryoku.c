@@ -7,6 +7,13 @@
 
 #include "manna-harbour_miryoku.h"
 
+const uint16_t PROGMEM COMZ[] = {KC_J, KC_G, COMBO_END};
+const uint16_t PROGMEM TH[] = {KC_D, KC_N, COMBO_END};
+const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(COMZ, KC_Z),
+    COMBO(TH, KC_T, KC_H), 
+};
 enum layers { MIRYOKU_LAYER_NAMES };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
