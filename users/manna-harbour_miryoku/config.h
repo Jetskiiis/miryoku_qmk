@@ -5,6 +5,8 @@
 
 #pragma once
 
+# define COMBO_COUNT 3
+
 // default but used in macros
 #undef TAPPING_TERM
 #define TAPPING_TERM 200
