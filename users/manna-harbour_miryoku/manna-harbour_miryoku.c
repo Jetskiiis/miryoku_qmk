@@ -13,6 +13,7 @@ const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(COMZ, KC_Z),
     COMBO(TH, KC_T, KC_H), 
+    COMBO(H_LM_combo, KC_T, KC_H),
 };
 enum layers { MIRYOKU_LAYER_NAMES };
 
