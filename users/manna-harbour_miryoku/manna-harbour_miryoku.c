@@ -18,7 +18,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(ku_qu, KU_QU)
     
     }
-
+}
 // CUSTOM KEYSTROKES
 bool process_adaptive_key(uint16_t keycode, const keyrecord_t *record) {
     bool return_state = true; // assume we don't do anything.
