@@ -10,10 +10,65 @@
 const uint16_t PROGMEM COMZ[] = {KC_J, KC_G, COMBO_END};
 const uint16_t PROGMEM TH[] = {KC_D, KC_N, COMBO_END};
 const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
+const uint16_t PROGMEM ku_qu[]    = {KC_U, KC_K, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(COMZ, KC_Z),
     COMBO(TH, KC_T, KC_H), 
     COMBO(H_LM_combo, KC_T, KC_H),
+    COMBO(ku_qu, KU_QU)
+
+
+// CUSTOM KEYSTROKES
+bool process_adaptive_key(uint16_t keycode, const keyrecord_t *record) {
+    bool return_state = true; // assume we don't do anything.
+    static uint16_t prior_keycode = KC_NO; // for process_adaptive_key
+    static uint16_t prior_keydown = 0;
+
+    if (record->event.pressed) {
+        keycode = keycode & 0xFF; // ignore all mods? or just shift?
+        if ((timer_elapsed(prior_keydown) < ADAPTIVE_TERM)) {
+            switch (keycode) {
+                case KC_M:
+                    switch (prior_keycode) {
+                        case KC_F: // FM -> FL
+                        case KC_P: // PM -> PL
+                        case KC_B: // BM -> BL
+                        case KC_X: // XM -> XL
+                            tap_code(KC_L);
+                            return_state = false; // done.
+                    }
+                    break;
+                case KC_F:
+                    switch (prior_keycode) {
+                        case KC_X: //XF -> XC
+                            tap_code(KC_C);
+                            return_state = false; // done.
+               
+                    }
+                    break;
+            }
+        }
+        prior_keycode = keycode;
+        prior_keydown = timer_read(); // (re)start prior_key timing
+     case KU_QU:
+            if (record->event.pressed) {
+                SEND_CAP_STRING("qu", "Qu");
+            }
+            break;
+    return return_state; //
+}
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // Do we handle an adaptive key?
+    if (!process_adaptive_key(keycode, record)) {
+        return false; // took care of that key
+        
+        
+         case KU_QU:
+            if (record->event.pressed) {
+                SEND_CAP_STRING("qu", "Qu");
+            }
+            break;
+
 };
 enum layers { MIRYOKU_LAYER_NAMES };
 
