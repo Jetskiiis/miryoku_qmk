@@ -58,7 +58,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     // Do we handle an adaptive key?
     if (!process_adaptive_key(keycode, record)) {
         return false; // took care of that key
-        
+       }
+    switch (keycode) { 
         case DN_TH:
             if (record->event.pressed) {
                 SEND_CAP_STRING("th", "Th");
@@ -70,7 +71,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_CAP_STRING("qu", "Qu");
             }
             break;
-
+ }
+    return true;
 };
 enum layers { MIRYOKU_LAYER_NAMES };
 
