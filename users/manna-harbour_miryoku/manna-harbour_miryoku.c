@@ -9,12 +9,12 @@
 
 const uint16_t PROGMEM COMZ[] = {KC_J, KC_G, COMBO_END};
 const uint16_t PROGMEM dn_th[] = {KC_D, KC_N, COMBO_END};
-const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
+//const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
 const uint16_t PROGMEM ku_qu[]    = {KC_U, KC_K, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(COMZ, KC_Z),
     COMBO(dn_th, DN_TH), 
-    COMBO(H_LM_combo, KC_T, KC_H),
+    //COMBO(H_LM_combo, KC_T, KC_H),
     COMBO(ku_qu, KU_QU)
     
     }
@@ -51,17 +51,7 @@ bool process_adaptive_key(uint16_t keycode, const keyrecord_t *record) {
         }
         prior_keycode = keycode;
         prior_keydown = timer_read(); // (re)start prior_key timing
-     case KU_QU:
-            if (record->event.pressed) {
-                SEND_CAP_STRING("qu", "Qu");
-            }
-            break;
-        
-        case DN_TH:
-            if (record->event.pressed) {
-                SEND_CAP_STRING("th", "Th");
-            }
-            break;
+    }
     return return_state; //
 }
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -69,6 +59,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_adaptive_key(keycode, record)) {
         return false; // took care of that key
         
+        case DN_TH:
+            if (record->event.pressed) {
+                SEND_CAP_STRING("th", "Th");
+            }
+            break;
         
          case KU_QU:
             if (record->event.pressed) {
