@@ -20,10 +20,10 @@ enum combo_events {
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
 
-const uint16_t PROGMEM COMZ[] = {KC_J, KC_G, COMBO_END};
-const uint16_t PROGMEM dn_th[] = {KC_D, KC_N, COMBO_END};
+const uint16_t PROGMEM COMZ_COMBO[] = {KC_J, KC_G, COMBO_END};
+const uint16_t PROGMEM dn_th_STR[] = {KC_D, KC_N, COMBO_END};
 //const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
-const uint16_t PROGMEM ku_qu[]    = {KC_U, KC_K, COMBO_END};
+const uint16_t PROGMEM ku_qu_STR[]    = {KC_U, KC_K, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(COMZ, KC_Z),
