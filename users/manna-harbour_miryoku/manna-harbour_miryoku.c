@@ -18,7 +18,7 @@ combo_t key_combos[COMBO_COUNT] = {
     COMBO(ku_qu, KU_QU)
     
     }
-}
+};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
    
