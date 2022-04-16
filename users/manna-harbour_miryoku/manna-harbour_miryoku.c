@@ -7,10 +7,10 @@
 
 #include "manna-harbour_miryoku.h"
 
-enum custom_keycodes {
-    DN_TH = SAFE_RANGE,
-    KU_QU
-};
+//enum custom_keycodes {
+  //  DN_TH = SAFE_RANGE,
+    //KU_QU
+//};
 
 enum combo_events {
     COMZ,
@@ -24,30 +24,33 @@ const uint16_t PROGMEM COMZ[] = {KC_J, KC_G, COMBO_END};
 const uint16_t PROGMEM dn_th[] = {KC_D, KC_N, COMBO_END};
 //const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
 const uint16_t PROGMEM ku_qu[]    = {KC_U, KC_K, COMBO_END};
-combo_t key_combos[COMBO_LENGTH] = {
+
+combo_t key_combos[] = {
     COMBO(COMZ, KC_Z),
-    COMBO(dn_th, DN_TH), 
+    [DN_TH] = COMBO_ACTION(DN_TH),
+    //COMBO(dn_th, DN_TH), 
     //COMBO(H_LM_combo, KC_T, KC_H),
-    COMBO(ku_qu, KU_QU)
+    [KU_QU] = COMBO_ACTION(KU_QU)
     
     };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-   
-    switch (keycode) { 
+
+    void process_combo_event(uint16_t combo_index, bool pressed) {
+    switch (combo_index) { 
         case DN_TH:
-            if (record->event.pressed) {
+            if (pressed) {
                 SEND_STRING("th");
             }
             break;
         
-         case KU_QU:
-            if (record->event.pressed) {
-                SEND_STRING("qu");
-            }
-            break;
- }
-    return true;
+         //case KU_QU:
+           // if (record->event.pressed) {
+             //   SEND_STRING("qu");
+            //}
+            //break;
+       } 
+   }
 };
 enum layers { MIRYOKU_LAYER_NAMES };
 
