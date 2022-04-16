@@ -13,8 +13,9 @@ enum custom_keycodes {
 };
 
 enum combo_events {
-    COMBO_1,
-    COMBO_2,
+    COMZ,
+    dn_th,
+    ku_qu,
     COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
