@@ -12,6 +12,13 @@ enum custom_keycodes {
     KU_QU
 };
 
+enum combo_events {
+    COMBO_1,
+    COMBO_2,
+    COMBO_LENGTH
+};
+uint16_t COMBO_LEN = COMBO_LENGTH;
+
 const uint16_t PROGMEM COMZ[] = {KC_J, KC_G, COMBO_END};
 const uint16_t PROGMEM dn_th[] = {KC_D, KC_N, COMBO_END};
 //const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
