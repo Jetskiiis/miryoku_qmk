@@ -14,8 +14,8 @@
 
 enum combo_events {
     COMZ,
-    dn_th,
-    ku_qu,
+    DN_TH,
+    KU_QU,
     COMBO_LENGTH
 };
 uint16_t COMBO_LEN = COMBO_LENGTH;
