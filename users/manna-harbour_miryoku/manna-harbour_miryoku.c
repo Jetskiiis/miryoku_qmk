@@ -7,6 +7,11 @@
 
 #include "manna-harbour_miryoku.h"
 
+enum custom_keycodes {
+    DN_TH = SAFE_RANGE,
+    KU_QU
+}
+
 const uint16_t PROGMEM COMZ[] = {KC_J, KC_G, COMBO_END};
 const uint16_t PROGMEM dn_th[] = {KC_D, KC_N, COMBO_END};
 //const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
