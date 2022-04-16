@@ -19,56 +19,19 @@ combo_t key_combos[COMBO_COUNT] = {
     
     }
 }
-// CUSTOM KEYSTROKES
-bool process_adaptive_key(uint16_t keycode, const keyrecord_t *record) {
-    bool return_state = true; // assume we don't do anything.
-    static uint16_t prior_keycode = KC_NO; // for process_adaptive_key
-    static uint16_t prior_keydown = 0;
 
-    if (record->event.pressed) {
-        keycode = keycode & 0xFF; // ignore all mods? or just shift?
-        if ((timer_elapsed(prior_keydown) < ADAPTIVE_TERM)) {
-            switch (keycode) {
-                case KC_M:
-                    switch (prior_keycode) {
-                        case KC_F: // FM -> FL
-                        case KC_P: // PM -> PL
-                        case KC_B: // BM -> BL
-                        case KC_X: // XM -> XL
-                            tap_code(KC_L);
-                            return_state = false; // done.
-                    }
-                    break;
-                case KC_F:
-                    switch (prior_keycode) {
-                        case KC_X: //XF -> XC
-                            tap_code(KC_C);
-                            return_state = false; // done.
-               
-                    }
-                    break;
-            }
-        }
-        prior_keycode = keycode;
-        prior_keydown = timer_read(); // (re)start prior_key timing
-    }
-    return return_state; //
-}
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    // Do we handle an adaptive key?
-    if (!process_adaptive_key(keycode, record)) {
-        return false; // took care of that key
-       }
+   
     switch (keycode) { 
         case DN_TH:
             if (record->event.pressed) {
-                SEND_CAP_STRING("th", "Th");
+                SEND_STRING("th");
             }
             break;
         
          case KU_QU:
             if (record->event.pressed) {
-                SEND_CAP_STRING("qu", "Qu");
+                SEND_STRING("qu");
             }
             break;
  }
