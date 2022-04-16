@@ -27,10 +27,10 @@ const uint16_t PROGMEM ku_qu_STR[]    = {KC_U, KC_K, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(COMZ, KC_Z),
-    [DN_TH] = COMBO_ACTION(DN_TH),
+    [DN_TH] = COMBO_ACTION (DN_TH),
     //COMBO(dn_th, DN_TH), 
     //COMBO(H_LM_combo, KC_T, KC_H),
-    [KU_QU] = COMBO_ACTION(KU_QU)
+    [KU_QU] = COMBO_ACTION (KU_QU)
     
     };
 
