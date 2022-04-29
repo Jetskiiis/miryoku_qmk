@@ -16,14 +16,14 @@ enum combo_events {
     COMZ,
     DN_TH,
     KU_QU,
-    UO_QU,
+    UO_Q,
 };
 
 const uint16_t PROGMEM COMZ_COMBO[] = {KC_J, KC_G, COMBO_END};
 const uint16_t PROGMEM dn_th_STR[] = {KC_D, KC_N, COMBO_END};
 //const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
 const uint16_t PROGMEM ku_qu_STR[]    = {KC_U, KC_K, COMBO_END};
-const uint16_t PROGMEM uo_qu_STR[]    = {KC_U, KC_O, COMBO_END};
+const uint16_t PROGMEM uo_q_STR[]    = {KC_U, KC_O, COMBO_END};
 
 combo_t key_combos[] = {
     [COMZ] =  COMBO_ACTION(COMZ_COMBO),
