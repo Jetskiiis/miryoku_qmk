@@ -29,7 +29,7 @@ combo_t key_combos[] = {
     [COMZ] =  COMBO_ACTION(COMZ_COMBO),
     [DN_TH] = COMBO_ACTION(dn_th_STR),
     [KU_QU] = COMBO_ACTION(ku_qu_STR),
-    [UO_Q] = COMBO_ACTION(KC_Q)
+    [UO_Q] = COMBO(uo_q_STR, KC_Q)
     };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
