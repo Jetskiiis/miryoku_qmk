@@ -16,17 +16,20 @@ enum combo_events {
     COMZ,
     DN_TH,
     KU_QU,
+    UO_QU,
 };
 
 const uint16_t PROGMEM COMZ_COMBO[] = {KC_J, KC_G, COMBO_END};
 const uint16_t PROGMEM dn_th_STR[] = {KC_D, KC_N, COMBO_END};
 //const uint16_t PROGMEM H_LM_combo[] = {KC_G, KC_M, COMBO_END};
 const uint16_t PROGMEM ku_qu_STR[]    = {KC_U, KC_K, COMBO_END};
+const uint16_t PROGMEM uo_qu_STR[]    = {KC_U, KC_O, COMBO_END};
 
 combo_t key_combos[] = {
     [COMZ] =  COMBO_ACTION(COMZ_COMBO),
     [DN_TH] = COMBO_ACTION(dn_th_STR),
-    [KU_QU] = COMBO_ACTION(ku_qu_STR)
+    [KU_QU] = COMBO_ACTION(ku_qu_STR),
+    [UO_Q] = COMBO_ACTION(KC_Q)
     };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
